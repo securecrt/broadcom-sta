@@ -1,5 +1,5 @@
 From: Andreas Beckmann <anbe@debian.org>
-Date: Sun, 16 Mar 2025 15:59:26 +0100
+Date: Thu, 30 Jan 2025 22:59:05 -0500
 Subject: fix detection of LINUXVER_WEXT_ONLY
 
 Bug-Debian: https://bugs.debian.org/1057447

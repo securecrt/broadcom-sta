@@ -1,7 +1,8 @@
-From: Eduard Bloch <blade@debian.org>
-Date: Sun, 16 Mar 2025 15:59:26 +0100
+From: "Jan Alexander Steffens (heftig)" <heftig@archlinux.org>
+Date: Thu, 30 Jan 2025 22:59:05 -0500
 Subject: linux601
 
+See: https://gitlab.archlinux.org/archlinux/packaging/packages/broadcom-wl-dkms/-/commit/1d6c1d51b78711bf383a14146fdfb4b3d08939e7.patch
 ---
  amd64/src/wl/sys/wl_cfg80211_hybrid.c | 46 ++++++++++++++++++++++++++++++-----
  1 file changed, 40 insertions(+), 6 deletions(-)
