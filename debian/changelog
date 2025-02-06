@@ -2,6 +2,7 @@ broadcom-sta (6.30.223.271-25.1) UNRELEASED; urgency=medium
 
   * broadcom-sta-source: Add autopkgtest.  (Closes: #1095295)
   * Promote module-assistant to Depends.
+  * Switch Architecture from all to amd64 i386.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 06 Feb 2025 12:52:31 +0100
 
