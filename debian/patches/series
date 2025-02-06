@@ -28,3 +28,4 @@
 29-linux601.patch
 30-fix-version-parsing.patch
 31-6.12-unaligned-header-location.patch
+32-build-Provide-local-lib80211.h-header.patch
