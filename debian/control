@@ -18,7 +18,7 @@ Testsuite: autopkgtest-pkg-dkms
 Package: broadcom-sta-common
 Architecture: all
 Depends: ${misc:Depends}
-Recommends: broadcom-sta-source, module-assistant
+Recommends: broadcom-sta-source
 Description: Common files for the Broadcom STA Wireless driver
  Broadcom STA is a binary-only device driver to support the following IEEE
  802.11a/b/g/n wireless network cards: BCM4311-, BCM4312-, BCM4313-,
@@ -53,9 +53,9 @@ Architecture: all
 Depends:
  ${misc:Depends},
  debhelper-compat (= 12),
+ module-assistant,
  make,
  xz-utils
-Recommends: module-assistant
 Description: Source for the Broadcom STA Wireless driver
  Broadcom STA is a binary-only device driver to support the following IEEE
  802.11a/b/g/n wireless network cards: BCM4311-, BCM4312-, BCM4313-,
