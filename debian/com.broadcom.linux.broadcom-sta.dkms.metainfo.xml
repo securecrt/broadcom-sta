@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
-  <id>broadcom-sta-dkms</id>
+  <id>com.broadcom.linux.broadcom-sta.dkms</id>
   <metadata_license>PD</metadata_license>
   <name>broadcom-sta-dkms</name>
   <summary>Drivers for certain Broadcom WiFi network interfaces</summary>

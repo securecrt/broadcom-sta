@@ -5,6 +5,11 @@ broadcom-sta (6.30.223.271-26) UNRELEASED; urgency=medium
   * 32-build-Provide-local-lib80211.h-header.patch: support for kernel
     6.13.x (closes: #1093091)
 
+  [ Petter Reinholdtsen ]
+
+  * Disable the AppStream metadata until it's clear how to work around
+    confusion with the devices supported by the free driver (closes: #1093193)
+
  -- Eduard Bloch <blade@debian.org>  Thu, 06 Feb 2025 10:53:58 +0100
 
 broadcom-sta (6.30.223.271-25) unstable; urgency=low
