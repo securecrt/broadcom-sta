@@ -22,11 +22,11 @@
 22-wl-Fix-fall-through-warnings.patch
 23-wl-Avoid-disconnecting-invalid-interface.patch
 24-wl-Use-the-right-enums-for-cfg80211_get_bss.patch
-26-linux518.patch
-27-linux600.patch
-28-wl-Update-for-linux-5.17-deprecations.patch
-29-linux601.patch
-30-fix-version-parsing.patch
-31-6.12-unaligned-header-location.patch
+25-linux518.patch
+26-linux600.patch
+27-wl-Update-for-linux-5.17-deprecations.patch
+28-linux601.patch
+29-fix-version-parsing.patch
+30-6.12-unaligned-header-location.patch
 32-build-Provide-local-lib80211.h-header.patch
 33-Prepare-for-6.14.0-rc6.patch
