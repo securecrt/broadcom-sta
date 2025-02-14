@@ -34,3 +34,4 @@
 33-wl-Remove-redefinition-warning-for-isprint.patch
 34-wl-Use-kernel-keyword-for-fallthrough.patch
 35-wl-Add-missing-braces-as-recommended-by-gcc.patch
+36-wl-Fix-memcpy-field-spanning-write-warning.patch
