@@ -2,7 +2,7 @@ broadcom-sta (6.30.223.271-26) unstable; urgency=medium
 
   [ Diego Escalante Urrelo ]
 
-  * 32-build-Provide-local-lib80211.h-header.patch: support for kernel
+  * 31-build-Provide-local-lib80211.h-header.patch: support for kernel
     6.13.x (closes: #1093091)
   * Various fixes on Linux build warnings (closes: #1084853)
 
@@ -13,7 +13,8 @@ broadcom-sta (6.30.223.271-26) unstable; urgency=medium
 
   [ Eduard Bloch ]
 
-  * Experimental support for Linux 6.16 (trivial API change)
+  * 32-Prepare-for-6.14.0-rc6.patch: Experimental support for Linux 6.16
+    (trivial API change)
 
  -- Eduard Bloch <blade@debian.org>  Sun, 16 Mar 2025 17:50:55 +0100
 
