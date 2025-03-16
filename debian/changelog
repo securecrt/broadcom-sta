@@ -10,7 +10,11 @@ broadcom-sta (6.30.223.271-26) UNRELEASED; urgency=medium
   * Disable the AppStream metadata until it's clear how to work around
     confusion with the devices supported by the free driver (closes: #1093193)
 
- -- Eduard Bloch <blade@debian.org>  Thu, 06 Feb 2025 10:53:58 +0100
+  [ Eduard Bloch ]
+
+  * Experimental support for Linux 6.16 (trivial API change)
+
+ -- Eduard Bloch <blade@debian.org>  Sun, 16 Mar 2025 16:31:37 +0100
 
 broadcom-sta (6.30.223.271-25.1) unstable; urgency=medium
 
