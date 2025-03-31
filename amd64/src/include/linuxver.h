@@ -148,8 +148,13 @@ typedef irqreturn_t(*FN_ISR) (int irq, void *dev_id, struct pt_regs *ptregs);
 #endif
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 29)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 13, 0)
+#include "lib80211.h"
+#else
 #include <net/lib80211.h>
 #endif
+#endif
+
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 29)
 #include <linux/ieee80211.h>
 #else

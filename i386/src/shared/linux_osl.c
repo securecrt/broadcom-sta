@@ -942,7 +942,11 @@ osl_getcycles(void)
 void *
 osl_reg_map(uint32 pa, uint size)
 {
-	return (ioremap_nocache((unsigned long)pa, (unsigned long)size));
+	#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 6, 0)
+		return (ioremap((unsigned long)pa, (unsigned long)size));
+	#else
+		return (ioremap_nocache((unsigned long)pa, (unsigned long)size));
+	#endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(5, 6, 0) */
 }
 
 void
@@ -1076,7 +1080,11 @@ osl_os_get_image_block(char *buf, int len, void *image)
 	if (!image)
 		return 0;
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 14, 0)
+	rdlen = kernel_read(fp, buf, len, &fp->f_pos);
+#else
 	rdlen = kernel_read(fp, fp->f_pos, buf, len);
+#endif
 	if (rdlen > 0)
 		fp->f_pos += rdlen;
 

@@ -558,7 +558,7 @@ typedef struct bcm_bit_desc_ex {
 typedef struct bcm_tlv {
 	uint8	id;
 	uint8	len;
-	uint8	data[1];
+	uint8	data[];
 } bcm_tlv_t;
 
 #define bcm_valid_tlv(elt, buflen) ((buflen) >= 2 && (int)(buflen) >= (int)(2 + (elt)->len))

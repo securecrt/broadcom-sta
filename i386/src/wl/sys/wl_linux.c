@@ -56,7 +56,12 @@
 #include <asm/irq.h>
 #include <asm/pgtable.h>
 #include <asm/uaccess.h>
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 12, 0)
+#include <linux/unaligned.h>
+#else
 #include <asm/unaligned.h>
+#endif
+
 
 #include <proto/802.1d.h>
 
@@ -582,10 +587,17 @@ wl_attach(uint16 vendor, uint16 device, ulong regs,
 	}
 	wl->bcm_bustype = bustype;
 
+	#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 6, 0)
+	if ((wl->regsva = ioremap(dev->base_addr, PCI_BAR0_WINSZ)) == NULL) {
+		WL_ERROR(("wl%d: ioremap() failed\n", unit));
+		goto fail;
+	}
+	#else
 	if ((wl->regsva = ioremap_nocache(dev->base_addr, PCI_BAR0_WINSZ)) == NULL) {
 		WL_ERROR(("wl%d: ioremap() failed\n", unit));
 		goto fail;
 	}
+	#endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(5, 6, 0) */
 
 	wl->bar1_addr = bar1_addr;
 	wl->bar1_size = bar1_size;
@@ -772,8 +784,13 @@ wl_pci_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
 	if ((val & 0x0000ff00) != 0)
 		pci_write_config_dword(pdev, 0x40, val & 0xffff00ff);
 		bar1_size = pci_resource_len(pdev, 2);
+		#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 6, 0)
+		bar1_addr = (uchar *)ioremap(pci_resource_start(pdev, 2),
+			bar1_size);
+		#else
 		bar1_addr = (uchar *)ioremap_nocache(pci_resource_start(pdev, 2),
 			bar1_size);
+		#endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(5, 6, 0) */
 	wl = wl_attach(pdev->vendor, pdev->device, pci_resource_start(pdev, 0), PCI_BUS, pdev,
 		pdev->irq, bar1_addr, bar1_size);
 
@@ -3335,12 +3352,19 @@ wl_proc_write(struct file *filp, const char __user *buff, size_t length, loff_t 
 }
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 10, 0)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 6, 0)
+static const struct proc_ops wl_fops = {
+	.proc_read	= wl_proc_read,
+	.proc_write	= wl_proc_write,
+};
+#else
 static const struct file_operations wl_fops = {
 	.owner	= THIS_MODULE,
 	.read	= wl_proc_read,
 	.write	= wl_proc_write,
 };
-#endif
+#endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(5, 6, 0) */
+#endif /* LINUX_VERSION_CODE >= KERNEL_VERSION(3, 10, 0) */
 
 static int
 wl_reg_proc_entry(wl_info_t *wl)

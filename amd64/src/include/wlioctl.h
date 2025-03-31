@@ -91,7 +91,7 @@ typedef struct wl_scan_results {
 	uint32 buflen;
 	uint32 version;
 	uint32 count;
-	wl_bss_info_t bss_info[1];
+	wl_bss_info_t bss_info[];
 } wl_scan_results_t;
 
 #define WL_MAXRATES_IN_SET		16	
@@ -129,7 +129,7 @@ typedef struct wl_uint32_list {
 
 	uint32 count;
 
-	uint32 element[1];
+	uint32 element[];
 } wl_uint32_list_t;
 
 typedef struct wl_assoc_params {
@@ -247,7 +247,7 @@ typedef struct _pmkid {
 
 typedef struct _pmkid_list {
 	uint32	npmkid;
-	pmkid_t	pmkid[1];
+	pmkid_t	pmkid[];
 } pmkid_list_t;
 
 typedef struct _pmkid_cand {
@@ -257,7 +257,7 @@ typedef struct _pmkid_cand {
 
 typedef struct _pmkid_cand_list {
 	uint32	npmkid_cand;
-	pmkid_cand_t	pmkid_cand[1];
+	pmkid_cand_t	pmkid_cand[];
 } pmkid_cand_list_t;
 
 typedef struct {
@@ -278,7 +278,7 @@ typedef struct channel_info {
 
 struct maclist {
 	uint count;			
-	struct ether_addr ea[1];	
+	struct ether_addr ea[];	
 };
 
 typedef struct wl_ioctl {
